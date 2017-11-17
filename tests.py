@@ -3,10 +3,17 @@ import unittest
 import gol
 
 class TestWorldCreation(unittest.TestCase):
-  def test_build_world(self):
-    faulty_length_file = open("faulty_worlds/bad_length", "r")
-    self.assertRaises(ValueError, gol.build_world, faulty_length_file)
-    faulty_length_file.close()
+  def testBuildWorldFailsOnBadLengthLines(self):
+    badLengthFile = open("faulty_worlds/bad_length", "r")
+    self.assertRaises(ValueError, gol.buildWorld, badLengthFile)
+    badLengthFile.close()
+
+  def testBuildWorldSucceedsOnOkayInput(self):
+    okInputFile = open("worlds/blink", "r")
+    result = gol.buildWorld(okInputFile)
+    okInputFile.close()
+
+    self.assertTrue(result[4, 1].isAlive())
 
 if __name__ == "__main__":
   unittest.main()
