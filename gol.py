@@ -52,22 +52,23 @@ def build_world(input_file):
 ######################
 # MAIN PROGRAM START #
 ######################
-try:
-  (input_file, iteration_count) = parse_args()
-except Exception as error:
-  print(error)
-  print(usage_text)
-  exit(1)
+if __name__ == "__main__":
+  try:
+    (input_file, iteration_count) = parse_args()
+  except Exception as error:
+    print(error)
+    print(usage_text)
+    exit(1)
 
-try:
-  world = build_world(input_file)
-except Exception as error:
-  print(error)
-  print(usage_text)
+  try:
+    world = build_world(input_file)
+  except Exception as error:
+    print(error)
+    print(usage_text)
+    input_file.close()
+    exit(2)
+
   input_file.close()
-  exit(2)
-
-input_file.close()
 
 
 
