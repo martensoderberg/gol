@@ -38,7 +38,9 @@ def build_world(input_file):
   lines = 0
   line_len = 0
   for line in input_file:
-    if line_len is not 0 and len(line) is not len_line:
+    if line_len is 0:
+      line_len = len(line)
+    elif len(line) is not line_len:
       # TODO: error class??
       raise ValueError("Varying-length lines in input file!")
     print(line.strip())
