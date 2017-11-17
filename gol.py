@@ -33,7 +33,7 @@ def parseArgs():
 
   return (inputFile, iterationCount)
 
-# build_world takes a file as its input and outputs its world representation
+# buildWorld takes a file as its input and outputs its world representation
 def buildWorld(inputFile):
   lines = 0
   lineLen = 0
